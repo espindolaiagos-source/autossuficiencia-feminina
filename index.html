@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autossuficiência Feminina - Empoderamento Através da Preparação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #495057;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f7f8f9 100%);
+            overflow: hidden; /* To contain the parallax elements */
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            max-width: 450px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease-out;
+        }
+
+        .hero-accent-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #8F9779;
+            opacity: 0.2;
+            border-radius: 24px;
+            transform: rotate(-10deg);
+            z-index: 1;
+            transition: transform 0.3s ease-out;
+        }
+
+
+        .hero-content {
+            flex: 1.5;
+            text-align: left;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #8F9779;
+            margin-bottom: 30px;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-content .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 40px;
+        }
+
+        /* Images Section */
+        .images-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .image-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #e9ecef;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 3.5rem; /* Increased size for icons */
+            color: #8F9779;
+        }
+
+        .image-caption {
+            font-size: 1rem;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonials h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.8rem;
+            color: #343a40;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-quote-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3rem;
+            color: #8F9779;
+            opacity: 0.15;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #495057;
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #8F9779;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        /* CTA Section */
+                .cta-section {
+            padding: 100px 0;
+            background: #e9ecef;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #495057;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #8F9779;
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(143, 151, 121, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid #8F9779;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(143, 151, 121, 0.5);
+            background: white;
+            color: #8F9779;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .images-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sticky-cta.visible {
+            opacity: 1;
+        }
+
+        .sticky-cta .cta-button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(143, 151, 121, 0.5);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #343a40;
+            margin-bottom: 50px;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .custom-video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-container:hover .custom-video-controls {
+            opacity: 1;
+        }
+
+        .custom-video-controls button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            flex-grow: 1;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0;
+            background-color: #ffffff;
+            border-radius: 3px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            background-color: #343a40;
+            color: #adb5bd;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-image-container fade-in" id="hero-parallax-container">
+                <div class="hero-accent-shape"></div>
+                <img src="eBookCapa.jpg" alt="Mulher sorrindo enquanto colhe pêssegos em uma cesta" class="hero-image">
+            </div>
+            <div class="hero-content fade-in">
+                <h1>Autossuficiência Feminina</h1>
+                <p class="subtitle">Planeje. Proteja. Prevenia.</p>
+                <div class="intro-text">
+                    Em um mundo cheio de incertezas, estar pronta para enfrentar desafios inesperados é mais importante do que nunca. Este eBook ensina como construir segurança e tranquilidade para sua família.<br><br>
+                    <strong>Autossuficiência é liberdade — e toda mulher merece se sentir empoderada.</strong>
+
+    </section>
+
+    <!-- Images Section -->
+    <section class="images-section">
+        <div class="container">
+            <div class="images-grid">
+                <div class="image-card fade-in">
+                    <div class="image-placeholder"><i class="fas fa-home"></i></div>
+                    <p class="image-caption">Um lar tranquilo com a família</p>
+                </div>
+                <div class="image-card fade-in">
+                    <div class="image-placeholder"><i class="fas fa-seedling"></i></div>
+                    <p class="image-caption">Alimentos frescos e seguros</p>
+                </div>
+                <div class="image-card fade-in">
+                    <div class="image-placeholder"><i class="fas fa-female"></i></div>
+                    <p class="image-caption">Força e graça feminina</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Veja o Poder da Preparação</h2>
+            <div class="video-container fade-in" id="video-wrapper">
+                <video id="custom-video" width="100%" loop autoplay muted playsinline>
+                    <source src="AUTOSSUFICIÊNCIA FEMININA.mp4" type="video/mp4">
+                    Seu navegador não suporta o tag de vídeo.
+                </video>
+                <div class="custom-video-controls">
+                    <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+                    <div id="progress-bar" class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <button id="mute-btn"><i class="fas fa-volume-mute"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="fade-in">O Que as Mulheres Estão Dizendo</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"Eu nunca imaginei que a autossuficiência poderia ser tão simples e poderosa. Hoje me sinto muito mais segura."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <span class="author-name">Camila S.</span>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"Este eBook mudou completamente minha perspectiva. Agora tenho um plano claro para o futuro da minha família e me sinto incrivelmente empoderada."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <span class="author-name">Maria L.</span>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"Finalmente, conselhos práticos que realmente funcionam! Implementei muitas dicas e minha confiança disparou."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <span class="author-name">Ana R.</span>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"Toda mulher deveria ler isto. Não é apenas sobre preparação — é sobre assumir o controle da sua vida."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <span class="author-name">Sofia M.</span>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"As estratégias neste livro são transformadoras. Sinto-me preparada para qualquer coisa agora, e essa paz de espírito não tem preço."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">L</div>
+                        <span class="author-name">Lucia P.</span>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">"Claro, prático e inspirador. Este eBook me deu as ferramentas para criar o futuro seguro que desejo para minha família."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">I</div>
+                        <span class="author-name">Isabella C.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="fade-in">Pronta para Começar?</h2>
+            <p class="fade-in">Garanta sua cópia do eBook e dê o primeiro passo em direção a uma vida com mais segurança, tranquilidade e autossuficiência.</p>
+            <a href="#" class="cta-button fade-in">Quero Meu Ebook Agora <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta">
+        <a href="#" class="cta-button">Quero Meu Ebook Agora <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Autossuficiência Feminina. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Parallax effect for hero image
+        const parallaxContainer = document.getElementById('hero-parallax-container');
+        if (parallaxContainer) {
+            const accentShape = parallaxContainer.querySelector('.hero-accent-shape');
+            const image = parallaxContainer.querySelector('.hero-image');
+
+            parallaxContainer.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = parallaxContainer.getBoundingClientRect();
+                const x = (e.clientX - left - width / 2) / (width / 2);
+                const y = (e.clientY - top - height / 2) / (height / 2);
+
+                // Adjust these values for more/less parallax effect
+                const accentX = -x * 15;
+                const accentY = -y * 15;
+                const imageX = -x * 5;
+                const imageY = -y * 5;
+
+                accentShape.style.transform = `translateX(${accentX}px) translateY(${accentY}px) rotate(-10deg)`;
+                image.style.transform = `translateX(${imageX}px) translateY(${imageY}px)`;
+            });
+
+            parallaxContainer.addEventListener('mouseleave', () => {
+                accentShape.style.transform = 'translateX(0) translateY(0) rotate(-10deg)';
+                image.style.transform = 'translateX(0) translateY(0)';
+            });
+        }
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Custom Video Controls
+        const videoWrapper = document.getElementById('video-wrapper');
+        if (videoWrapper) {
+            const video = document.getElementById('custom-video');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const muteBtn = document.getElementById('mute-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const progressFill = document.getElementById('progress-fill');
+
+            const togglePlay = () => {
+                if (video.paused) {
+                    video.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    video.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            };
+
+            const toggleMute = () => {
+                video.muted = !video.muted;
+                muteBtn.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+            };
+
+            const updateProgress = () => {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressFill.style.width = `${progress}%`;
+            };
+
+            const scrub = (e) => {
+                const scrubTime = (e.offsetX / progressBar.offsetWidth) * video.duration;
+                video.currentTime = scrubTime;
+            };
+
+            playPauseBtn.addEventListener('click', togglePlay);
+            video.addEventListener('click', togglePlay);
+            muteBtn.addEventListener('click', toggleMute);
+            video.addEventListener('timeupdate', updateProgress);
+            progressBar.addEventListener('click', scrub);
+
+            // Update play button icon when video ends or is paused by other means
+            video.addEventListener('play', () => playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>');
+            video.addEventListener('pause', () => playPauseBtn.innerHTML = '<i class="fas fa-play"></i>');
+        }
+
+        // Sticky CTA visibility
+        const stickyCTA = document.querySelector('.sticky-cta');
+        const mainCTA = document.querySelector('.cta-section');
+
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    stickyCTA.classList.remove('visible');
+                } else {
+                    stickyCTA.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        ctaObserver.observe(mainCTA);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
